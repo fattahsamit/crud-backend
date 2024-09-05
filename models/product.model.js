@@ -10,13 +10,13 @@ const ProductSchema = mongoose.Schema(
       // Custom error message for missing product name
     },
     quantity: {
-      type: String,
+      type: Number,
       required: true,
       default: 0,
       // Default value if no quantity is specified
     },
     price: {
-      type: String,
+      type: Number,
       required: true,
       default: 0,
     },
