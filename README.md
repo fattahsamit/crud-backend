@@ -142,6 +142,7 @@ This project is licensed under the **MIT License**. See the [LICENSE](https://gi
 2. **Sorting**: Implement sorting by attributes like price or name.
 3. **Rate Limiting**: Prevent abuse with rate limiting.
 4. **Caching**: Use caching to improve performance and reduce database load.
+5. **API Documentation**: Provide interactive API documentation with Swagger.
 
 ## Author
 
