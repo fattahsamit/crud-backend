@@ -136,6 +136,13 @@ pm.collectionVariables.set("product", product);
 
 This project is licensed under the **MIT License**. See the [LICENSE](https://github.com/fattahsamit/products-crud-backend/blob/main/LICENSE) file for details.
 
+## Future Implementations
+
+1. **Search**: Enable keyword search for products.
+2. **Sorting**: Implement sorting by attributes like price or name.
+3. **Rate Limiting**: Prevent abuse with rate limiting.
+4. **Caching**: Use caching to improve performance and reduce database load.
+
 ## Author
 
 Fattah Samit - https://github.com/fattahsamit
