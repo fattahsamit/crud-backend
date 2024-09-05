@@ -76,7 +76,7 @@ This project is a simple CRUD (Create, Read, Update, Delete) API built with Expr
 To test the API endpoints with Postman, you can use the provided Postman collection. Follow these steps to import the collection:
 
 1. Open Postman
-2. Import the Collection, use the json file provided in the testing folder
+2. Import the [Postman Collection](https://www.postman.com/universal-zodiac-887192/workspace/showcase/collection/28308550-c7fa793f-1708-48ee-b1bc-51b19db87a5b?action=share&creator=28308550), use the `JSON` file provided in the testing folder
 3. Use the Collection:
    - Once imported, you will find the collection in the left sidebar under Collections.
    - Expand the collection to see the available requests.
@@ -129,7 +129,7 @@ pm.collectionVariables.set("product", product);
 
 **Running Tests in Postman:**
 
-1. After adding these test scripts, click the `Send` button on any request, and Postman will automatically run the tests after receiving a response.
+1. Test scripts are already added. Data can be modified, click the `Send` button on any request, and Postman will automatically run the tests after receiving a response.
 2. The results of the tests will be displayed under the `Tests` tab of the response panel.
 
 ## License
