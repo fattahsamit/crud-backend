@@ -13,6 +13,10 @@ This project is a simple CRUD (Create, Read, Update, Delete) API built with Expr
 
 ## Technologies
 
+<p align="center">
+    <img src="https://skillicons.dev/icons?i=nodejs,express,mongodb,postman" />
+</p>
+
 - **Express.js**: Web framework for Node.js.
 - **MongoDB**: NoSQL database for storing data.
 - **Mongoose**: ODM (Object Data Modeling) library for MongoDB and Node.js.
