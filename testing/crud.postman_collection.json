@@ -69,14 +69,9 @@
 									"    pm.response.to.have.status(200);\r",
 									"});\r",
 									"\r",
-									"pm.test(\"Response is an array\", () => {\r",
-									"    const jsonData = pm.response.json();\r",
-									"    pm.expect(jsonData).to.be.an('array');\r",
-									"});\r",
-									"\r",
 									"pm.test(\"Each product has required fields\", () => {\r",
-									"    const jsonData = pm.response.json();\r",
-									"    jsonData.forEach((product) => {\r",
+									"    const response = pm.response.json();\r",
+									"    response.products.forEach((product) => {\r",
 									"        pm.expect(product).to.have.property(\"name\");\r",
 									"        pm.expect(product).to.have.property(\"quantity\");\r",
 									"        pm.expect(product).to.have.property(\"price\");\r",
@@ -84,8 +79,7 @@
 									"});\r",
 									""
 								],
-								"type": "text/javascript",
-								"packages": {}
+								"type": "text/javascript"
 							}
 						}
 					],
@@ -105,7 +99,7 @@
 							}
 						},
 						"url": {
-							"raw": "{{local}}/api/products?limit=2",
+							"raw": "{{local}}/api/products?page=2&limit=5",
 							"host": [
 								"{{local}}"
 							],
@@ -115,8 +109,12 @@
 							],
 							"query": [
 								{
-									"key": "limit",
+									"key": "page",
 									"value": "2"
+								},
+								{
+									"key": "limit",
+									"value": "5"
 								}
 							]
 						}
@@ -245,8 +243,7 @@
 									"});\r",
 									""
 								],
-								"type": "text/javascript",
-								"packages": {}
+								"type": "text/javascript"
 							}
 						}
 					],
@@ -255,7 +252,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Digital Camera\",\r\n    \"quantity\": 12,\r\n    \"price\": 25.25,\r\n    \"image\": \"https://images.pexels.com/photos/90946/pexels-photo-90946.jpeg?cs=srgb&dl=pexels-madebymath-90946.jpg&fm=jpg\"\r\n}",
+							"raw": "{\r\n    \"name\": \"{{$randomProduct}}\",\r\n    \"quantity\": {{$randomInt}},\r\n    \"price\": {{$randomPrice}},\r\n    \"image\": \"https://images.pexels.com/photos/90946/pexels-photo-90946.jpeg?cs=srgb&dl=pexels-madebymath-90946.jpg&fm=jpg\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -425,7 +422,7 @@
 	"variable": [
 		{
 			"key": "local",
-			"value": "",
+			"value": "http://localhost:8000",
 			"type": "string"
 		},
 		{
