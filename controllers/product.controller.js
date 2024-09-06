@@ -20,8 +20,11 @@ const getProducts = async (req, res) => {
     // Fetch paginated products from the database
     const products = await Product.find({}).skip(skip).limit(limit);
 
-    // Return all products
-    res.status(200).json(products);
+    // Count the total number of products in the database
+    const totalProducts = await Product.countDocuments({});
+
+    // Return paginated products along with the total count
+    res.status(200).json({ products, totalProducts });
   } catch (error) {
     // Handle any errors and return a 500 status with an error message
     res.status(500).json({ message: error.message });
