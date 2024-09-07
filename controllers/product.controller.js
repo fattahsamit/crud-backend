@@ -6,17 +6,25 @@ import Product from "../models/product.model.js";
 // @query   limit (optional) - limit the number of products returned
 const getProducts = async (req, res) => {
   try {
-    // Parse limit query parameter if provided
-    const limit = parseInt(req.query.limit);
-    // Fetch all products from the database
-    const products = await Product.find({});
+    // Parse limit and page query parameter if provided
+    let limit = parseInt(req.query.limit);
+    let page = parseInt(req.query.page);
 
-    // If a valid limit is provided, return the specified number of products
-    if (!isNaN(limit) && limit > 0) {
-      return res.status(200).json(products.slice(0, limit));
-    }
-    // If there is no limit, return all products
-    res.status(200).json(products);
+    // Validate limit and page, set defaults if invalid
+    if (isNaN(limit) || limit <= 0) limit = 10;
+    if (isNaN(page) || page <= 0) page = 1;
+
+    // Calculate the products of items to skip
+    const skip = (page - 1) * limit;
+
+    // Fetch paginated products from the database
+    const products = await Product.find({}).skip(skip).limit(limit);
+
+    // Count the total number of products in the database
+    const totalProducts = await Product.countDocuments({});
+
+    // Return paginated products along with the total count
+    res.status(200).json({ products, totalProducts });
   } catch (error) {
     // Handle any errors and return a 500 status with an error message
     res.status(500).json({ message: error.message });
